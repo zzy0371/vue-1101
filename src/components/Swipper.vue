@@ -38,7 +38,6 @@
 			},
 			stop(){
 				this.playing=false;
-				console.log(this.playing);
 			},
 			resume(){
 				this.playing=true;
