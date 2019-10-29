@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DownLoad from '../views/DownLoad.vue'
 import Detail from '../views/Detail.vue'
-
-
+import Baby from '@/components/Baby.vue'
+import Coments from '@/components/Coments.vue'
 Vue.use(VueRouter)
 
 // 当前项目中的所有路由的列表集合
@@ -36,7 +36,19 @@ const routes = [
 		// 路由参数  能够匹配   /detail/101
 		path:"/detail/:id",
 		name:"detail",
-		component:Detail
+		component:Detail,
+		children:[
+			{
+				path:"baby",
+				name:"baby",
+				component:Baby
+			},
+			{
+				path:"comments",
+				name:"comments",
+				component:Coments
+			}
+		]
 	}
 ]
 
