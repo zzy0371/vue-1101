@@ -5,6 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+
+// Vue js入口  Vue实例
 new Vue({
   router,
   store,
