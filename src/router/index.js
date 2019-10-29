@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DownLoad from '../views/DownLoad.vue'
+import Detail from '../views/Detail.vue'
+
 
 Vue.use(VueRouter)
 
@@ -28,6 +30,13 @@ const routes = [
 		path:"/download",
 		name:"download",
 		component:DownLoad
+	},
+	{
+		
+		// 路由参数  能够匹配   /detail/101
+		path:"/detail/:id",
+		name:"detail",
+		component:Detail
 	}
 ]
 
