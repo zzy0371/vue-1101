@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-   <div class="swipper-container">	
+	<div class="swipper-container">	
 			<swipper :items="swipperList"></swipper>
 	 </div>
 	 <div class="phones-container">
