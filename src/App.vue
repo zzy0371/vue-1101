@@ -5,7 +5,18 @@
 			<!-- router-link  会渲染成a 标签   to等同href -->
 			<router-link to="/">Home</router-link> |
 			<router-link to="/joke">joke</router-link> |
+			<router-link to="/carts">Carts</router-link> |
 			<router-link to="/download">DownLoad</router-link> |
+			
+			<span v-if="!$store.state.isLog">
+				<router-link to="/login">Login</router-link> |
+				<router-link to="/regist">Regist</router-link> 
+			</span>
+			<span v-else>
+				<router-link to="/">Center</router-link> |
+				<router-link to="/">LogOut</router-link>
+			</span> 
+			
 <!-- 			<router-link to="/detail/109">Detail109</router-link> |
 			<router-link to="/detail/110">Detail110</router-link> |
 			<router-link to="/detail/111">Detail111</router-link> -->

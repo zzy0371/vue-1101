@@ -3,6 +3,12 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DownLoad from '../views/DownLoad.vue'
 import Detail from '../views/Detail.vue'
+import Carts from '../views/Carts.vue'
+import Login from '../views/Login.vue'
+import Regist from '../views/Regist.vue'
+
+
+
 import Baby from '@/components/Baby.vue'
 import Coments from '@/components/Coments.vue'
 Vue.use(VueRouter)
@@ -21,6 +27,10 @@ const routes = [
   {
     path: '/joke',
     name: 'joke',
+		// 当前路由需要授权
+		meta:{
+			auth:true
+		},
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -30,6 +40,25 @@ const routes = [
 		path:"/download",
 		name:"download",
 		component:DownLoad
+	},
+	{
+		path:"/login",
+		name:"login",
+		component:Login
+	},
+	{
+		path:"/regist",
+		name:"regist",
+		component:Regist
+	},
+	{
+		path:"/carts",
+		name:"carts",
+		component:Carts,
+		// 当前路由需要授权
+		meta:{
+			auth:true
+		}
 	},
 	{
 		
@@ -54,6 +83,28 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+
+// 导航守卫 拦截非法请求
+router.beforeEach( (toRouter,fromRouter,next )=>{
+	console.log(toRouter,fromRouter);
+	console.log(toRouter.meta.auth)
+	
+	if(toRouter.meta.auth)
+	{
+		// 需要授权 请进入login
+		// console.log(toRouter.path);
+		// redirect 意思是 重定向
+		// 处理如果登录成功该怎么办
+
+		next(`/login?redirect=${toRouter.path}`)
+	}
+	else
+	{
+		next()
+	}
+
 })
 
 

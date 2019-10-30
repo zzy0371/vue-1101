@@ -3,7 +3,7 @@
 		<h2>{{good.title}}</h2>
 		<img :src="good.image" alt="">
 		<br>
-		<button @click="num--" :disabled="num==1">-</button> {{num}} <button @click="num++">+</button>  <button>购买</button>
+		<button @click="num--" :disabled="num==1">-</button> {{num}} <button @click="num++">+</button>  <button @click="addCart()">加入购物车</button>
 		<br>
 		<router-link :to="`/detail/${this.$route.params.id}/baby`">宝贝详情</router-link> <router-link :to="`/detail/${this.$route.params.id}/comments`">评论</router-link>
 		<router-view></router-view>
@@ -18,7 +18,16 @@
 				num:1,
 			}
 		},		
-		
+		methods:{
+			addCart(){
+				this.$store.commit("addToCart",{
+					id:this.good.id,
+					title:this.good.title,
+					price:this.good.price,
+					num:this.num
+				})
+			}
+		},
 		
 		created(){
 			// 此处应获取了商品id
@@ -33,6 +42,7 @@
 					id:this.$route.params.id,
 					title:`商品${this.$route.params.id}`,
 					image:"http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ca9b4f81af709935556bef9aa21a90e8.jpg?thumb=1&w=250&h=250&f=webp&q=90",				
+					price:parseInt(Math.random()*100)
 				}
 		}
 	}

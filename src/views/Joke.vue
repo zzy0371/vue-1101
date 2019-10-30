@@ -1,7 +1,6 @@
 <template>
   <div class="joke">
     <h1>笑话页面</h1>
-	
 	<div v-for="item in joks">
 		<div class="item" v-if="item.title">
 			<h2>{{item.title}}</h2>
