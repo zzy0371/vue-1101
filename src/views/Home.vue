@@ -23,6 +23,10 @@ import Phone from '@/components/Phone.vue'
 
 export default {
   name: 'home',
+	created(){
+		console.log(this.$route);
+		console.log(this.$router);
+	},
 	data(){
 		return {
 			swipperList:[

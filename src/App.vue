@@ -8,7 +8,7 @@
 			<router-link to="/carts">Carts</router-link> |
 			<router-link to="/download">DownLoad</router-link> |
 			
-			<span v-if="!$store.state.isLog">
+			<span v-if="!$store.getters.getLog">
 				<router-link to="/login">Login</router-link> |
 				<router-link to="/regist">Regist</router-link> 
 			</span>

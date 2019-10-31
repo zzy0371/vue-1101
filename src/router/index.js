@@ -86,6 +86,9 @@ const router = new VueRouter({
 })
 
 
+// 在路由中修改vuex的变量需要重新导入 不能使用this 
+import store from '../store'
+
 // 导航守卫 拦截非法请求
 router.beforeEach( (toRouter,fromRouter,next )=>{
 	console.log(toRouter,fromRouter);
@@ -98,7 +101,22 @@ router.beforeEach( (toRouter,fromRouter,next )=>{
 		// redirect 意思是 重定向
 		// 处理如果登录成功该怎么办
 
-		next(`/login?redirect=${toRouter.path}`)
+		// 判断用户是否登陆过
+		// TODO 添加逻辑
+		// 如果登录过了 直接next
+		// 如果没有登录 进入登录页面
+		
+		
+		// this 不能够代表vue 
+		if(store.getters.getLog){
+			next();
+		}
+		else{
+			console.log(`本来想进入${toRouter.path} 结果应为该页面需要登录  而现在又没有登录`)
+			next(`/login?redirect=${toRouter.path}`)
+		}
+		
+		
 	}
 	else
 	{

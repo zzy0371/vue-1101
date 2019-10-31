@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import Cookie from 'js-cookie'
+
 export default new Vuex.Store({
 	//  State  相当于VUE data
 	// 获取数据  this.$store.state.age
@@ -11,11 +13,26 @@ export default new Vuex.Store({
 		isLog:false
   },
 	
+	// 类似于computed 
+	//  this.$store.getters.geetLog
+	getters:{
+		getLog( state ){
+			return state.isLog||Cookie.get("islog");
+		}
+	},
+	
+	
 	// mutations 相当于VUE methods
 	// 调用方法 this.$store.commit("函数名",参数列表)
   mutations: {
 		setLog(state,log){
 			state.isLog=log;
+			if(log){
+				Cookie.set("islog",true);
+			}
+			else{
+				Cookie.remove("islog")
+			}
 		},
 		
 		
