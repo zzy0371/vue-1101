@@ -14,7 +14,7 @@
 			</span>
 			<span v-else>
 				<router-link to="/">Center</router-link> |
-				<router-link to="/">LogOut</router-link>
+				<router-link to="/logout">LogOut</router-link>
 			</span> 
 			
 <!-- 			<router-link to="/detail/109">Detail109</router-link> |

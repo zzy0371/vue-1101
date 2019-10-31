@@ -6,6 +6,7 @@ import Detail from '../views/Detail.vue'
 import Carts from '../views/Carts.vue'
 import Login from '../views/Login.vue'
 import Regist from '../views/Regist.vue'
+import LogOut from '../views/LogOut.vue'
 
 
 
@@ -45,6 +46,11 @@ const routes = [
 		path:"/login",
 		name:"login",
 		component:Login
+	},
+	{
+		path:"/logout",
+		name:"logout",
+		component:LogOut
 	},
 	{
 		path:"/regist",

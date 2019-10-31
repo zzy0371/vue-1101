@@ -28,7 +28,8 @@ export default new Vuex.Store({
 		setLog(state,log){
 			state.isLog=log;
 			if(log){
-				Cookie.set("islog",true);
+				Cookie.set("islog",true,{expires:7});
+				Cookie.set
 			}
 			else{
 				Cookie.remove("islog")
