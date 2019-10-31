@@ -13,7 +13,7 @@
 				<router-link to="/regist">Regist</router-link> 
 			</span>
 			<span v-else>
-				<router-link to="/">Center</router-link> |
+				<router-link to="/center">Center</router-link> |
 				<router-link to="/logout">LogOut</router-link>
 			</span> 
 			

@@ -7,7 +7,7 @@ import Carts from '../views/Carts.vue'
 import Login from '../views/Login.vue'
 import Regist from '../views/Regist.vue'
 import LogOut from '../views/LogOut.vue'
-
+import Center from '../views/Center.vue'
 
 
 import Baby from '@/components/Baby.vue'
@@ -51,6 +51,11 @@ const routes = [
 		path:"/logout",
 		name:"logout",
 		component:LogOut
+	},
+	{
+		path:"/center",
+		name:"center",
+		component:Center
 	},
 	{
 		path:"/regist",
